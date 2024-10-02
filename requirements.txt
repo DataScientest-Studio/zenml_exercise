@@ -1,0 +1,4 @@
+zenml[server]
+scikit-learn
+pyarrow
+pandas
