@@ -3,14 +3,11 @@ from uuid import UUID
 
 from zenml import pipeline
 from zenml.client import Client
-from zenml.config import DockerSettings
 
 from steps import model_trainer
 from pipelines import feature_engineering
 
-docker_settings = DockerSettings(requirements="pipelines/requirements.txt")
-
-@pipeline(settings={"docker": docker_settings})
+@pipeline
 def training(
     train_dataset_id: Optional[UUID] = None,
 ):

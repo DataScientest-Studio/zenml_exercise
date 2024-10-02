@@ -3,16 +3,13 @@ from uuid import UUID
 
 from zenml import pipeline
 from zenml.client import Client
-from zenml.config import DockerSettings
 
 import pandas as pd
 
 from steps import data_loader, data_splitter, data_preprocessor, inference_preprocessor, inference_predictor
 from pipelines.training import training
 
-docker_settings = DockerSettings(requirements="pipelines/requirements.txt")
-
-@pipeline(settings={"docker": docker_settings})
+@pipeline
 def inference(
     data_inference_path: str = 'data/winequality-red-inf.csv', 
     model_id: Optional[UUID] = None,
