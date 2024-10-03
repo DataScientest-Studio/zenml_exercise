@@ -10,6 +10,7 @@ from pipelines import feature_engineering
 @pipeline
 def training(
     train_dataset_id: Optional[UUID] = None,
+    target: str = 'target'
 ):
     if train_dataset_id is None:
         dataset_trn, _ = feature_engineering()
@@ -17,5 +18,5 @@ def training(
         client = Client()
         dataset_trn = client.get_artifact_version(name_id_or_prefix=train_dataset_id)
     
-    model = model_trainer(dataset_trn)
+    model = model_trainer(dataset_trn, target)
     return model

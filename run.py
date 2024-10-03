@@ -28,15 +28,15 @@ def main(
     ):
 
     if feature_pipeline:
-        print("Lancement du pipeline de feature engineering...")
+        print("Starting the feature engineering pipeline...")
         feature_engineering()
 
     if training_pipeline:
-        print("Lancement du pipeline d'entraînement...")
+        print("Starting the training pipeline...")
         training()
 
     if inference_pipeline:
-        print("Lancement du pipeline d'inférence...")
+        print("Starting the inference pipeline...")
         inference()
 
 
